@@ -1,0 +1,28 @@
+
+<!doctype html>
+<html>
+   <body>
+<h1>User Data</h1>
+      <table border = 1>
+         <tr>
+               <th> ID </th>
+               <th> First Name </th>
+               <th> Last Name </th>
+               <th> Salary </th>
+               <th> Gender </th>
+         </tr>
+         {% for i in result_data%}
+
+            <tr>
+               <td>{{i[0]}}</td>
+               <td>{{i[1]}}</td>
+               <td>{{i[2]}}</td>
+               <td>{{i[3]}}</td>
+               <td>{{i[4]}}</td>
+            </tr>
+
+         {% endfor %}
+      </table>
+
+   </body>
+</html>

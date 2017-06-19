@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <title>Geeky Magic</title>
+ 
+ 
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+ 
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+ 
+ 
+</head>
+ 
+<body>
+    {% if status!="" %}
+    <center><h1>{{ status }}</h1></center><br>
+    {% endif %}
+    <div class="container">
+        <div class="header">
+            <nav>
+                <ul class="nav nav-pills pull-right">
+                    <li role="presentation" class="active"><a href="{{ url_for('index') }}">Home</a>
+                    </li>
+                    {% if status=="" or status=="Bye-Bye" %}
+                    <li role="presentation"><a href="{{ url_for('login') }}">Log In</a>
+                    </li>
+                    <li role="presentation"><a href="{{ url_for('signup') }}">Sign Up</a>
+                    </li>
+                    {% endif %}
+                    {% if status!="" and status!="Bye-Bye" %}
+                    <li role="presentation"><a href="{{ url_for('logout') }}">Logout</a>
+                    </li>
+            		{% endif %}
+                </ul>
+            </nav>
+            <h3 class="text-muted">Flask App</h3>
+        </div>
+ 
+        <div class="jumbotron">
+            <h1>Geeky Magic</h1>
+            <p class="lead"></p>
+            {% if status!="" and status!="Bye-Bye" %}
+            <form action="{{ url_for('list') }}" method='POST'>
+            <p><a class="btn btn-lg btn-success" href="{{ url_for('list') }}" role="button">List</a>
+            </p>
+            </form>
+            {% endif %}
+        </div>
+ 
+        <div class="row marketing">
+            <div class="col-lg-6">
+                <h4>Muhammad Ali</h4>
+                <p>He who is not courageous enough to take risks will accomplish nothing in life.</p>
+ 
+                <h4>Steve Jobs</h4>
+                <p>Stay hungry,stay foolish.</p>
+ 
+                <h4>GodFather</h4>
+                <p>Great men are not born great,they grow great.</p>
+            </div>
+ 
+            <div class="col-lg-6">
+                <h4>BB1</h4>
+                <p>It's not who I am underneath,it is what I do that defines me.</p>
+ 
+                <h4>Shawshank Redemption</h4>
+                <p>Hope is a good thing, maybe the best of things and no good thing ever dies.</p>
+ 
+                <h4>JOKER</h4>
+                <p>If you are good at something then never do it for free.</p>
+            </div>
+        </div>
+ 
+    </div>
+</body>
+ 
+</html>
+
+
